@@ -17,6 +17,14 @@ var tree: BinaryNode<Int> = {
   return seven
 }()
 
+func height<T>(of node: BinaryNode<T>?) -> Int {
+  guard let node = node else {
+    return -1
+  }
+
+  return 1 + max(height(of: node.leftChild), height(of: node.rightChild))
+}
+
 example(of: "tree diagram") {
   print(tree)
 }
@@ -31,4 +39,9 @@ example(of: "pre-order traversal") {
 
 example(of: "post-order traversal") {
   tree.traversePostOrder { print($0) }
+}
+
+example(of: "tree height") {
+  let nodeHeight = height(of: tree)
+  print("height: \(nodeHeight)")
 }
