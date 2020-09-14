@@ -24,10 +24,28 @@ extension BinaryNode {
     rightChild?.traversePreOrder(visit: visit)
   }
 
+  public func traversePreOrderNil(visit: (Element?) -> Void) {
+    visit(value)
+    if leftChild == nil  {
+      visit(nil)
+    }
+    if rightChild == nil {
+      visit(nil)
+    }
+    leftChild?.traversePreOrderNil(visit: visit)
+    rightChild?.traversePreOrderNil(visit: visit)
+  }
+
   public func traversePostOrder(visit: (Element) -> Void) {
     leftChild?.traversePostOrder(visit: visit)
     rightChild?.traversePostOrder(visit: visit)
     visit(value)
+  }
+
+  public func toArray() -> [Element?] {
+    var array: [Element?] = []
+    traversePreOrderNil { array.append($0) }
+    return array
   }
 }
 

@@ -45,3 +45,7 @@ example(of: "tree height") {
   let nodeHeight = height(of: tree)
   print("height: \(nodeHeight)")
 }
+
+example(of: "binatry tree to array") {
+  print(tree.toArray())
+}
