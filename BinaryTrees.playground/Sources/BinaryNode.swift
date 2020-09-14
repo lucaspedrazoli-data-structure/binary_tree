@@ -26,14 +26,8 @@ extension BinaryNode {
 
   public func traversePreOrderNil(visit: (Element?) -> Void) {
     visit(value)
-    if leftChild == nil  {
-      visit(nil)
-    }
-    leftChild?.traversePreOrderNil(visit: visit)
-    if rightChild == nil {
-      visit(nil)
-    }
-    rightChild?.traversePreOrderNil(visit: visit)
+    leftChild == nil ? visit(nil) : leftChild?.traversePreOrderNil(visit: visit)
+    rightChild == nil ? visit(nil) : rightChild?.traversePreOrderNil(visit: visit)
   }
 
   public func traversePostOrder(visit: (Element) -> Void) {
