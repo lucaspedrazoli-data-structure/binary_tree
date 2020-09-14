@@ -29,10 +29,10 @@ extension BinaryNode {
     if leftChild == nil  {
       visit(nil)
     }
+    leftChild?.traversePreOrderNil(visit: visit)
     if rightChild == nil {
       visit(nil)
     }
-    leftChild?.traversePreOrderNil(visit: visit)
     rightChild?.traversePreOrderNil(visit: visit)
   }
 
