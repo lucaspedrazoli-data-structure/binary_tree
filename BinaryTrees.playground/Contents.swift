@@ -17,6 +17,24 @@ var tree: BinaryNode<Int> = {
   return seven
 }()
 
+var tree2: BinaryNode<Int> = {
+
+  let root = BinaryNode(value: 15)
+  let ten = BinaryNode(value: 10)
+  let five = BinaryNode(value: 5)
+  let twelve = BinaryNode(value: 12)
+  let twentyFive = BinaryNode(value: 25)
+  let seventeen = BinaryNode(value: 17)
+
+  root.leftChild = ten
+  root.rightChild = twentyFive
+  ten.leftChild = five
+  ten.rightChild = twelve
+  twentyFive.leftChild = seventeen
+
+  return root
+}()
+
 func height<T>(of node: BinaryNode<T>?) -> Int {
   guard let node = node else {
     return -1
@@ -47,5 +65,5 @@ example(of: "tree height") {
 }
 
 example(of: "binatry tree to array") {
-  print(tree.toArray())
+  print(tree2.toArray())
 }
