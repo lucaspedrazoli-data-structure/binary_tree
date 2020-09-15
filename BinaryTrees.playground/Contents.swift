@@ -64,6 +64,12 @@ example(of: "tree height") {
   print("height: \(nodeHeight)")
 }
 
-example(of: "binatry tree to array") {
+example(of: "binary tree to array") {
   print(tree2.toArray())
+}
+
+example(of: "array to binary tree") {
+  var array = tree2.toArray()
+  let tree = BinaryNode.fromArray(&array)
+  print(tree)
 }
