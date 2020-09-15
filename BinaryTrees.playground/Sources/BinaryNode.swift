@@ -8,6 +8,10 @@ public class BinaryNode<Element> {
   public init(value: Element) {
     self.value = value
   }
+
+  public func isLeaf() -> Bool {
+    return leftChild == nil && rightChild == nil
+  }
 }
 
 extension BinaryNode {
@@ -40,6 +44,16 @@ extension BinaryNode {
     var array: [Element?] = []
     traversePreOrderNil { array.append($0) }
     return array
+  }
+
+  public static func fromArray(_ array: inout [Element?]) -> BinaryNode<Element>? {
+    guard let firstElement = array.removeFirst() else {
+      return nil
+    }
+    let node = BinaryNode(value: firstElement)
+    node.leftChild = fromArray(&array)
+    node.rightChild = fromArray(&array)
+    return node
   }
 }
 
