@@ -1,4 +1,6 @@
 # binary_tree
+* The value of a left child must be less than the value of its parent.
+* Consequently, the value of a right child must be greater than or equal to the value of its parent.
 
 ```
 class BinaryNode<Element> {
