@@ -1,6 +1,7 @@
 # binary_tree
 * The value of a left child must be less than the value of its parent.
 * Consequently, the value of a right child must be greater than or equal to the value of its parent.
+#### Binary search trees use this property to save you from performing unnecessary checking. As a result, lookup, insert and removal have an average time complexity of O(log n)
 
 ```
 class BinaryNode<Element> {
